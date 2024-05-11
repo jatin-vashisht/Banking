@@ -41,14 +41,3 @@ export async function createAdminClient() {
     }
   };
 }
-
-export async function getLoggedInUser() {
-  try {
-    const { account } = await createSessionClient();
-    const result = await account.get();
-    return result
-  } catch (error) {
-    console.log(error)
-    return null;
-  }
-}

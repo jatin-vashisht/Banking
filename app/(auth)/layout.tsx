@@ -6,17 +6,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="flex min-h-screen w-full justify-between font-inter">
+    <main className="flex min-h-screen w-full justify-between font-inter overflow-hidden">
       {children}
       <div className="auth-asset">
-        <div className="">
-          <Image
-            src="/icons/auth-image.svg"   // remember to change this image with your SS
-            alt="Auth image"
-            width={500}
-            height={500}
-          />
-        </div>
+        <Image
+          src="/icons/auth-image.png"
+          alt="Auth image"
+          width={1000}
+          height={1000}
+          className="rounded-l-xl object-contain translate-x-48 border-4 border-black-1 "
+        />
       </div>
     </main>
   );

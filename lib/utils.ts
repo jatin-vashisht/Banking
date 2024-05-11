@@ -67,7 +67,7 @@ export const formatDateTime = (dateString: Date) => {
 };
 
 export function formatAmount(amount: number): string {
-  const formatter = new Intl.NumberFormat("en-IN", {
+  const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "INR",
     minimumFractionDigits: 2,
@@ -211,3 +211,16 @@ export const authFormSchema = (type: string) =>
     email: z.string().email(),
     password: z.string().min(8),
   });
+
+  export const convertToINR = (value: number | string): number => {
+    if (typeof value === 'string') {
+      const parsedValue = parseFloat(value);
+      if (isNaN(parsedValue)) {
+        console.error('Invalid input string:', value);
+        return 0;
+      }
+      return parsedValue * 85;
+    } else {
+      return value * 85;
+    }
+  };

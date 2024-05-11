@@ -1,9 +1,9 @@
 "use client";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
-import Image from "next/image";
 import { sidebarLinks } from "@/constants";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Footer from "./Footer";
 
@@ -40,7 +40,7 @@ const MobileNav = ({ user }: MobileNavProps) => {
                     pathname === link.route ||
                     pathname.startsWith(`${link.route}/`);
                   return (
-                    <SheetClose asChild key={link.label}>
+                    <SheetClose asChild key={link.route}>
                       <Link
                         href={link.route}
                         key={link.label}
